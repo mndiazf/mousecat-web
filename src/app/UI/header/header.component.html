@@ -1,0 +1,52 @@
+<div class="header">
+    <div class="header-arriba">
+        <a href=""><img src="../../../assets/img/logo.jpg" alt="logo-mousecat"></a>
+        <div class="input-search">
+            <input type="text" placeholder="Ingrese su texto" />
+            <a href=""> <img src="../../../assets/img/lupa.png" alt=""> </a>
+        </div>
+
+        <div class="icons-container">
+            <a href=""><img src="../../../assets/img/avatar.png" alt=""></a>
+            <a href=""><img src="../../../assets/img/carro.png" alt=""></a>
+        </div>
+
+        <!-- Botón de menú para modo responsivo -->
+        <button class="menu-button" (click)="showSidebar = !showSidebar" *ngIf="isMobile">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+                
+        <!-- Sidebar para modo responsivo -->
+        <div class="sidebar" [ngClass]="{ 'active': showSidebar }">
+            <nav class="nav2">
+                <ul class="nav-list2">
+                    <li class="nav-item2"><a href="#">Inicio</a></li>
+                    <li class="nav-item2"><a href="#">Destacados</a></li>
+                    <li class="nav-item2"><a href="#">Descubre</a></li>
+                    <li class="nav-item2"><a href="#">Géneros</a></li>
+                    <li class="nav-item2"><a href="#">Sobre Nosotros</a></li>
+                    <li class="nav-item2"><a href="#">Mi Perfil</a></li>
+                    <li class="nav-item2 close-button" (click)="showSidebar = false"><a href="#">Cerrar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+
+    <div class="header-abajo" *ngIf="!isMobile">
+        <nav class="header__nav">
+            <div class="header3">
+            <ul class="menu3">
+                <li><a routerLink="/home">Inicio</a></li>
+                <li><a routerLink="/tienda">Tienda</a></li>
+                <li><a routerLink="/quienes-somos">¿Quienes Somos?</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+
+    
+</div>
