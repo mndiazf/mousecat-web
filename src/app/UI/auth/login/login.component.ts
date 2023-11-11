@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/Func/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,20 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
+  constructor(private authService: AuthService) {}
+
   login() {
-    // Agrega lógica de inicio de sesión aquí
-    console.log('Iniciando sesión...');
+    this.authService.login(this.username, this.password)
+      .subscribe(
+        (response) => {
+          // Manejar la respuesta del servidor (éxito)
+          console.log('Inicio de sesión exitoso:', response);
+        },
+        (error) => {
+          // Manejar el error
+          console.error('Error al iniciar sesión:', error);
+        }
+      );
   }
 
   forgotPassword(event: Event) {
