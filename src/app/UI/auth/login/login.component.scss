@@ -1,0 +1,68 @@
+/* login.component.scss */
+.login-container {
+    padding-top: 100px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login{
+    width: 350px; /* Ajusta el ancho del contenedor según tus necesidades */
+    padding: 40px; /* Ajusta el espacio interior según tus necesidades */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 10px; /* Ajusta el espacio entre etiquetas y campos de entrada */
+  }
+  
+  input {
+    margin-bottom: 20px; /* Ajusta el espacio entre campos de entrada */
+    padding: 12px; /* Ajusta el relleno según tus necesidades */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  button {
+    background-color: #581E9B;
+    color: white;
+    padding: 15px; /* Ajusta el tamaño del botón según tus necesidades */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: rgb(96, 52, 146);
+  }
+  
+  .additional-options {
+    margin-top: 20px; /* Ajusta el espacio entre las opciones adicionales y el botón de inicio de sesión */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    a{
+        text-align: center;
+    }
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

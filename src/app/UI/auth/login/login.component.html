@@ -1,0 +1,21 @@
+<!-- login.component.html -->
+<div class="login-container">
+    <div class="login">
+        <h2>Iniciar sesión</h2>
+        <form (submit)="login()">
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" id="username" [(ngModel)]="username" required>
+    
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" [(ngModel)]="password" required>
+    
+        <button type="submit">Iniciar sesión</button>
+        </form>
+    
+        <div class="additional-options">
+        <a href="#" (click)="forgotPassword($event)">¿Olvidaste tu contraseña?</a>
+        <button (click)="redirectToRegistration()">Registrarse</button>
+        </div>
+    </div>
+</div>
+  
