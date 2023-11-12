@@ -1,0 +1,67 @@
+<!-- shop.component.html -->
+<div class="containerp">
+
+    <div class="filtro">
+      <h2>Filtros:</h2>
+      <div class="filtros">
+  
+        <h3>Marca:</h3>
+        <select>
+          <option value="">Todas las marcas</option>
+          <!-- Eliminado ngFor -->
+        </select>
+        <h3>Precio:</h3>
+        <label>
+          Precio Mínimo:
+          <input type="number" />
+        </label>
+        <label>
+          Precio Máximo:
+          <input type="number" />
+        </label>
+  
+        <h3>Categoría:</h3>
+        <select>
+          <option value="">Todas las categorias</option>
+          <!-- Eliminado ngFor -->
+        </select>
+      </div>
+    </div>
+  
+    <div class="contenedor-productos">
+  
+      <div class="ordenar-label">
+        <div class="qproductos">
+          <h4>Productos encontrados: </h4>
+        </div>
+        
+        <div class="ordenarp">
+          <span>Ordenar Precio: </span>
+          <select>
+            <option value="asc">Ordenar por precio menor</option>
+            <option value="desc">Ordenar por precio mayor</option>
+          </select>
+        </div>
+      </div>
+  
+      <div id="producto">
+        <div class="tarjeta-producto" *ngFor="let product of products">
+          
+          <div class="cosas-container">
+            <img  [alt]="product.nombre" class="imagen-produto"/>
+            <h3 class="nombre-producto">{{ product.nombre }}</h3>
+            <p class="marca-producto">{{ product.marca }}</p>
+            <h2 class="precio-producto">{{ product.precio}}</h2>
+            <div class="overlay"></div>
+            <button class="card-btn">Añadir al carrito</button>
+  
+            <div class="espacio-emergente"></div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  
+  
