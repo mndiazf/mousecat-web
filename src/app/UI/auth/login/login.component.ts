@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/Func/auth/auth.service';
 
 @Component({
@@ -7,34 +8,30 @@ import { AuthService } from 'src/app/Func/auth/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  loginForm: FormGroup;
 
-  username: string = '';
-  password: string = '';
-
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
   login() {
-    this.authService.login(this.username, this.password)
-      .subscribe(
-        (response) => {
-          // Manejar la respuesta del servidor (éxito)
-          console.log('Inicio de sesión exitoso:', response);
+    // Verifica si el formulario es válido antes de realizar la solicitud
+    if (this.loginForm.valid) {
+      // Llama al servicio de autenticación para realizar el inicio de sesión
+      this.authService.login(this.loginForm.value).subscribe(
+        () => {
+          console.log('Inicio de sesión exitoso');
+          // Puedes redirigir al usuario o realizar otras acciones aquí
         },
         (error) => {
-          // Manejar el error
-          console.error('Error al iniciar sesión:', error);
+          console.error('Error durante el inicio de sesión:', error);
         }
       );
-  }
-
-  forgotPassword(event: Event) {
-    event.preventDefault();
-    // Agrega lógica para manejar la recuperación de contraseña aquí
-    console.log('¿Olvidaste tu contraseña?');
-  }
-
-  redirectToRegistration() {
-    // Agrega lógica para redirigir a la página de registro aquí
-    console.log('Redirigiendo a la página de registro...');
+    } else {
+      // Formulario no válido, realiza acciones adicionales si es necesario
+    }
   }
 }
